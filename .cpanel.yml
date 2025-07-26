@@ -7,6 +7,7 @@ deployment:
     - /bin/cp past-records.html $DEPLOYPATH
     - /bin/cp services.html $DEPLOYPATH
     - /bin/cp team.html $DEPLOYPATH
+    - /bin/cp da.txt $DEPLOYPATH
     - /bin/cp -R fonts $DEPLOYPATH
     - /bin/cp -R images $DEPLOYPATH
     - /bin/cp -R js $DEPLOYPATH
