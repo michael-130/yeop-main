@@ -12,7 +12,7 @@ function openLiveChat() {
     // Here are several options:
     
     // Option 1: Open WhatsApp chat (replace with your WhatsApp number)
-    const whatsappNumber = '13052409671'; // Replace with your actual WhatsApp number
+    const whatsappNumber = '+6281318627595'; // Replace with your actual WhatsApp number
     const message = encodeURIComponent('Hello! I would like to chat with someone from your team.');
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
     
@@ -60,23 +60,14 @@ function showChatOptionsModal() {
                                 <small class="d-block mt-1">Quick response guaranteed</small>
                             </button>
                             
-                            <button type="button" class="btn btn-primary btn-lg" onclick="openMessengerChat()">
-                                <i class="bi-messenger me-2"></i>
-                                Facebook Messenger
-                                <small class="d-block mt-1">Connect via Facebook</small>
-                            </button>
-                            
+                        
                             <button type="button" class="btn btn-info btn-lg" onclick="openEmailChat()">
                                 <i class="bi-envelope-fill me-2"></i>
                                 Send us an Email
                                 <small class="d-block mt-1">Detailed inquiries welcome</small>
                             </button>
                             
-                            <button type="button" class="btn btn-secondary btn-lg" onclick="openContactForm()">
-                                <i class="bi-form-check me-2"></i>
-                                Contact Form
-                                <small class="d-block mt-1">Fill out our contact form</small>
-                            </button>
+                
                         </div>
                         
                         <div class="text-center mt-4">
@@ -103,7 +94,7 @@ function showChatOptionsModal() {
 }
 
 function openWhatsAppChat() {
-    const whatsappNumber = '13052409671'; // Replace with your actual WhatsApp number
+    const whatsappNumber = '+6281318627595'; // Replace with your actual WhatsApp number
     const message = encodeURIComponent('Hello! I found your website and would like to chat with someone from your team. 😊');
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
     
@@ -124,7 +115,7 @@ function openMessengerChat() {
 }
 
 function openEmailChat() {
-    const email = 'info@company.com';
+    const email = 'info@idekuadvisory.com';
     const subject = encodeURIComponent('Inquiry from Website');
     const body = encodeURIComponent('Hello,\n\nI visited your website and would like to get in touch with your team.\n\nBest regards');
     
