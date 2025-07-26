@@ -6,11 +6,12 @@ https://templatemo.com/tm-590-topic-listing
 
 */
 
-/*---------------------------------------
+/*--------------------------------------- 
   CUSTOM PROPERTIES ( VARIABLES )             
 -----------------------------------------*/
 :root {
   --white-color:                  #ffffff;
+  --text-color:                   #717275;
   --primary-color:                #13547a;
   --secondary-color:              #80d0c7;
   --section-bg-color:             #f0f8ff;
@@ -312,7 +313,7 @@ strong {
 
 .navbar-nav .nav-link {
   display: inline-block;
-  color: var(--white-color);
+
   font-family: var(--title-font-family); 
   font-size: var(--menu-font-size);
   font-weight: var(--font-weight-medium);
@@ -510,13 +511,15 @@ strong {
   }
 
 .navbar-toggler {
-  border: 0;
+  border: 2;
   padding: 0;
   cursor: pointer;
   margin: 0;
   width: 30px;
   height: 35px;
   outline: none;
+  color: #000000;
+  outline-color: #13547a;
 }
 .object-fit-cover {
   object-fit: cover;
@@ -564,7 +567,7 @@ strong {
 }
 
 .navbar-toggler .navbar-toggler-icon {
-  background: var(--white-color);
+  background: var(--dark-color);
   transition: background 10ms 300ms ease;
   display: block;
   width: 30px;

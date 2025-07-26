@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Records</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="css/premium-enhancements.css" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #f8fafc;
+            font-family: 'Inter', sans-serif;
+        }
+        .header-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .record-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .record-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+        .record-icon {
+            font-size: 2.5rem;
+            color: #3b82f6;
+        }
+        .record-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e40af;
+        }
+        .record-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+        .custom-btn {
+            background-color: #3b82f6;
+            color: white;
+            border-radius: 8px;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+        }
+        .custom-btn:hover {
+            background-color: #1e40af;
+        }
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: linear-gradient(to bottom, #3b82f6, #1e40af);
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+        .timeline-item {
+            position: relative;
+            width: 100%;
+            display: flex;
+            margin: 30px 0;
+            transition: opacity 0.5s ease;
+        }
+        .timeline-item.left {
+            justify-content: flex-start;
+        }
+        .timeline-item.right {
+            justify-content: flex-end;
+        }
+        .circle {
+            background: #ffffff;
+            border: 4px solid #3b82f6;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #1e40af;
+            z-index: 1;
+            margin: 0 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .timeline-content {
+            max-width: 300px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .timeline-content:hover {
+            transform: scale(1.05);
+        }
+        .timeline-item.left .timeline-content {
+            text-align: right;
+            margin-right: 20px;
+        }
+        .timeline-item.right .timeline-content {
+            text-align: left;
+            margin-left: 20px;
+        }
+        .blockquote {
+            border-left: 4px solid #3b82f6;
+            background: #f1f5f9;
+        }
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+            .timeline-item {
+                justify-content: flex-start;
+            }
+            .timeline-item.left .timeline-content,
+            .timeline-item.right .timeline-content {
+                text-align: left;
+                margin-left: 60px;
+                margin-right: 20px;
+            }
+            .circle {
+                width: 60px;
+                height: 60px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+              <nav class="navbar navbar-expand-lg">
+   <div class="container">
+              <a class="navbar-brand" href="index.html">
+  <img src="images/idekunoback.png" alt="Topic Logo" style="height: 40px; width: auto;">
+</a>
+
+                    <div class="d-lg-none ms-auto me-4">
+                        <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+                    </div>
+    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#section_1">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="services.html">Services</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link" href="team.html">Team</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link active" href="contact.html">Contact</a>
+                            </li>
+                        </ul>
+
+                        <div class="d-none d-lg-block">
+                            <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            
+
+    
+</head>
+<body>
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <img id="record-header-image" src="" alt="" class="header-image mb-4">
+            <h1 id="record-title" class="display-4 fw-bold text-dark"></h1>
+        </div>
+        <div id="record-content" class="container"></div>
+    </div>
+
+    <script>
+        const pastRecordsData = {
+            'clients': {
+                title: 'Happy Clients',
+                headerImage: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600',
+                content: `
+                    <h3 class="mb-4 text-3xl font-bold text-gray-800 animate__animated animate__fadeIn">Our Happy Clients</h3>
+                    <p class="lead mb-5 text-gray-600 animate__animated animate__fadeIn" style="animation-delay: 0.2s;">Over the years, we've had the privilege of working with amazing clients across various industries. Here's a glimpse into our client relationships and success stories.</p>
+                    <div class="row mb-5">
+                        <div class="col-md-4 text-center mb-4 animate__animated animate__zoomIn" style="animation-delay: 0.3s;">
+                            <div class="record-card p-4">
+                                <div class="record-icon mb-3"><i class="bi bi-people-fill"></i></div>
+                                <h3 class="record-number mb-2">500+</h3>
+                                <h5 class="record-title mb-3">Total Clients Served</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center mb-4 animate__animated animate__zoomIn" style="animation-delay: 0.4s;">
+                            <div class="record-card p-4">
+                                <div class="record-icon mb-3"><i class="bi bi-star-fill"></i></div>
+                                <h3 class="record-number mb-2">4.9/5</h3>
+                                <h5 class="record-title mb-3">Average Client Rating</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center mb-4 animate__animated animate__zoomIn" style="animation-delay: 0.5s;">
+                            <div class="record-card p-4">
+                                <div class="record-icon mb-3"><i class="bi bi-arrow-repeat"></i></div>
+                                <h3 class="record-number mb-2">95%</h3>
+                                <h5 class="record-title mb-3">Client Retention Rate</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <h5 class="mb-3 text-xl font-semibold text-gray-700">Client Industries</h5>
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Financial Services (120+ clients)</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Healthcare (85+ clients)</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Technology (95+ clients)</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Retail & E-commerce (75+ clients)</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Manufacturing (60+ clients)</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Non-profit (45+ clients)</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Education (35+ clients)</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Real Estate (30+ clients)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h5 class="mb-3 text-xl font-semibold text-gray-700">Client Testimonials</h5>
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <blockquote class="p-4 bg-light rounded blockquote animate__animated animate__fadeIn" style="animation-delay: 0.6s;">
+                                "Exceptional service and results. They truly understand our business needs."
+                                <footer class="blockquote-footer mt-2">John Smith, <cite>CEO, TechCorp</cite></footer>
+                            </blockquote>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <blockquote class="p-4 bg-light rounded blockquote animate__animated animate__fadeIn" style="animation-delay: 0.7s;">
+                                "Professional, reliable, and always deliver on time. Highly recommended!"
+                                <footer class="blockquote-footer mt-2">Sarah Johnson, <cite>CFO, FinanceFirst</cite></footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                `
+            },
+            'projects': {
+                title: 'Projects Completed',
+                headerImage: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=600',
+                content: `
+                    <h3 class="mb-4 text-3xl font-bold text-gray-800 animate__animated animate__fadeIn">Projects Completed</h3>
+                    <p class="lead mb-5 text-gray-600 animate__animated animate__fadeIn" style="animation-delay: 0.2s;">We've successfully completed over 1000 projects across various domains. Each project represents our commitment to excellence and client satisfaction.</p>
+                    <div class="row mb-5">
+                        <div class="col-md-4 text-center mb-4 animate__animated animate__zoomIn" style="animation-delay: 0.3s;">
+                            <div class="record-card p-4">
+                                <div class="record-icon mb-3"><i class="bi bi-briefcase-fill"></i></div>
+                                <h3 class="record-number mb-2">1000+</h3>
+                                <h5 class="record-title mb-3">Total Projects</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center mb-4 animate__animated animate__zoomIn" style="animation-delay: 0.4s;">
+                            <div class="record-card p-4">
+                                <div class="record-icon mb-3"><i class="bi bi-clock-fill"></i></div>
+                                <h3 class="record-number mb-2">98%</h3>
+                                <h5 class="record-title mb-3">On-Time Delivery</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center mb-4 animate__animated animate__zoomIn" style="animation-delay: 0.5s;">
+                            <div class="record-card p-4">
+                                <div class="record-icon mb-3"><i class="bi bi-currency-dollar"></i></div>
+                                <h3 class="record-number mb-2">95%</h3>
+                                <h5 class="record-title mb-3">Within Budget</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <h5 class="mb-3 text-xl font-semibold text-gray-700">Project Categories</h5>
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Accounting & Bookkeeping (350+ projects)</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Tax Preparation & Planning (280+ projects)</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Management Consulting (220+ projects)</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>HR Services (180+ projects)</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Financial Analysis (120+ projects)</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Business Strategy (85+ projects)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h5 class="mb-3 text-xl font-semibold text-gray-700">Project Success Metrics</h5>
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="p-4 bg-light rounded animate__animated animate__fadeIn" style="animation-delay: 0.6s;">
+                                <h6>Average Project Duration</h6>
+                                <p class="mb-0">3.2 months (ranging from 1 week to 18 months)</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="p-4 bg-light rounded animate__animated animate__fadeIn" style="animation-delay: 0.7s;">
+                                <h6>Client Satisfaction Score</h6>
+                                <p class="mb-0">4.8/5.0 based on post-project surveys</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+
+            'experience': {
+                title: 'Years of Experience',
+                headerImage: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600',
+                content: `
+                    <h3 class="mb-4 text-3xl font-bold text-gray-800 animate__animated animate__fadeIn">Our Experience Journey</h3>
+                    <p class="lead mb-5 text-gray-600 animate__animated animate__fadeIn" style="animation-delay: 0.2s;">With over 10 years in the industry, we've built a wealth of experience and expertise that benefits every client we serve.</p>
+                    <div class="row mb-5">
+                        <div class="col-md-4 text-center mb-4 animate__animated animate__zoomIn" style="animation-delay: 0.3s;">
+                            <div class="record-card p-4">
+                                <div class="record-icon mb-3"><i class="bi bi-calendar-check-fill"></i></div>
+                                <h3 class="record-number mb-2">10+</h3>
+                                <h5 class="record-title mb-3">Years in Business</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center mb-4 animate__animated animate__zoomIn" style="animation-delay: 0.4s;">
+                            <div class="record-card p-4">
+                                <div class="record-icon mb-3"><i class="bi bi-graph-up-arrow"></i></div>
+                                <h3 class="record-number mb-2">150%</h3>
+                                <h5 class="record-title mb-3">Growth Rate</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center mb-4 animate__animated animate__zoomIn" style="animation-delay: 0.5s;">
+                            <div class="record-card p-4">
+                                <div class="record-icon mb-3"><i class="bi bi-building"></i></div>
+                                <h3 class="record-number mb-2">3</h3>
+                                <h5 class="record-title mb-3">Office Locations</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <h5 class="mb-4 text-xl font-semibold text-gray-700 text-center">Our Timeline</h5>
+                    <div class="timeline-container mb-5">
+                        <div class="row justify-content-center">
+                            <div class="col-12 position-relative">
+                                <div class="timeline">
+                                    <div class="timeline-item left animate__animated animate__fadeIn" style="animation-delay: 0.6s;">
+                                        <div class="circle">2000</div>
+                                        <div class="timeline-content">
+                                            <h6>Started Education</h6>
+                                            <p>Began formal studies in business and technology.</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item right animate__animated animate__fadeIn" style="animation-delay: 0.7s;">
+                                        <div class="circle">2008</div>
+                                        <div class="timeline-content">
+                                            <h6>Undergraduate Degree</h6>
+                                            <p>Graduated with a degree in Business Administration.</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item left animate__animated animate__fadeIn" style="animation-delay: 0.8s;">
+                                        <div class="circle">2012</div>
+                                        <div class="timeline-content">
+                                            <h6>First Internship</h6>
+                                            <p>Interned at a consulting firm to gain real-world experience.</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item right animate__animated animate__fadeIn" style="animation-delay: 0.9s;">
+                                        <div class="circle">2015</div>
+                                        <div class="timeline-content">
+                                            <h6>Master's Degree</h6>
+                                            <p>Completed a Master's in Management and Innovation.</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item left animate__animated animate__fadeIn" style="animation-delay: 1s;">
+                                        <div class="circle">2016</div>
+                                        <div class="timeline-content">
+                                            <h6>Industry Entry</h6>
+                                            <p>Started working full-time in corporate strategy.</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item right animate__animated animate__fadeIn" style="animation-delay: 1.1s;">
+                                        <div class="circle">2018</div>
+                                        <div class="timeline-content">
+                                            <h6>Professional Growth</h6>
+                                            <p>Promoted to senior consultant managing key client accounts.</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item left animate__animated animate__fadeIn" style="animation-delay: 1.2s;">
+                                        <div class="circle">2020</div>
+                                        <div class="timeline-content">
+                                            <h6>Vision for Entrepreneurship</h6>
+                                            <p>Began planning a startup with a mission to innovate in consulting.</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item right animate__animated animate__fadeIn" style="animation-delay: 1.3s;">
+                                        <div class="circle">2022</div>
+                                        <div class="timeline-content">
+                                            <h6>Company Registered</h6>
+                                            <p>Officially launched the company and secured first clients.</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item left animate__animated animate__fadeIn" style="animation-delay: 1.4s;">
+                                        <div class="circle">2024</div>
+                                        <div class="timeline-content">
+                                            <h6>Team Expansion</h6>
+                                            <p>Grew to a 20-person team and expanded services nationally.</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item right animate__animated animate__fadeIn" style="animation-delay: 1.5s;">
+                                        <div class="circle">2025</div>
+                                        <div class="timeline-content">
+                                            <h6>Company & Web Launch</h6>
+                                            <p>Launched official company website and platform for global clients.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h5 class="mb-3 text-xl font-semibold text-gray-700">Experience Highlights</h5>
+                    <div class="row">
+                        <div class="col-md-6 mb-4 animate__animated animate__fadeIn" style="animation-delay: 1.6s;">
+                            <div class="p-4 bg-light rounded">
+                                <h6>Industry Expertise</h6>
+                                <p class="mb-0">Deep knowledge across 15+ industries with specialized teams for each sector</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4 animate__animated animate__fadeIn" style="animation-delay: 1.7s;">
+                            <div class="p-4 bg-light rounded">
+                                <h6>Technology Leadership</h6>
+                                <p class="mb-0">Early adopters of cloud technology and automation in professional services</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        $(document).ready(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const recordType = urlParams.get('type');
+            
+            if (recordType && pastRecordsData[recordType]) {
+                loadRecordData(pastRecordsData[recordType]);
+            } else {
+                showAllRecords();
+            }
+        });
+
+        function loadRecordData(record) {
+            document.title = `${record.title} - Past Records`;
+            $('#record-title').text(record.title);
+            $('#record-header-image').attr('src', record.headerImage).attr('alt', record.title);
+            $('#record-content').html(record.content);
+        }
+
+        function showAllRecords() {
+            $('#record-title').text('Our Track Record');
+            $('#record-header-image').attr('src', 'https://images.pexels.com/photos/3184297/pexels-photo-3184297.jpeg?auto=compress&cs=tinysrgb&w=600').attr('alt', 'Our Track Record');
+            $('#record-content').html(`
+                <h3 class="mb-4 text-3xl font-bold text-gray-800 animate__animated animate__fadeIn">Our Achievements</h3>
+                <p class="mb-5 text-gray-600 animate__animated animate__fadeIn" style="animation-delay: 0.2s;">Explore our detailed track record and achievements across different areas of our business.</p>
+                <div class="row">
+                    <div class="col-lg-12 col-md-6 col-12 mb-4 animate__animated animate__zoomIn" style="animation-delay: 0.3s;">
+                        <div class="record-card text-center h-100 p-4">
+                            <div class="record-icon mb-3"><i class="bi bi-people-fill"></i></div>
+                            <h3 class="record-number mb-2">500+</h3>
+                            <h5 class="record-title mb-3">Happy Clients</h5>
+                            <p class="record-description text-gray-600">Satisfied clients across various industries worldwide</p>
+                            <a href="past-records.html?type=clients" class="btn btn-sm custom-btn">View Details</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-12 mb-4 animate__animated animate__zoomIn" style="animation-delay: 0.4s;">
+                        <div class="record-card text-center h-100 p-4">
+                            <div class="record-icon mb-3"><i class="bi bi-briefcase-fill"></i></div>
+                            <h3 class="record-number mb-2">1000+</h3>
+                            <h5 class="record-title mb-3">Projects Completed</h5>
+                            <p class="record-description text-gray-600">Successfully delivered projects on time and within budget</p>
+                            <a href="past-records.html?type=projects" class="btn btn-sm custom-btn">View Details</a>
+                        </div>
+                    </div>
+            
+                    <div class="col-lg-6 col-md-6 col-12 mb-4 animate__animated animate__zoomIn" style="animation-delay: 0.6s;">
+                        <div class="record-card text-center h-100 p-4">
+                            <div class="record-icon mb-3"><i class="bi bi-calendar-check-fill"></i></div>
+                            <h3 class="record-number mb-2">10+</h3>
+                            <h5 class="record-title mb-3">Years Experience</h5>
+                            <p class="record-description text-gray-600">Decade of expertise in delivering quality solutions</p>
+                            <a href="past-records.html?type=experience" class="btn btn-sm custom-btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            `);
+        }
+    </script>
+    <footer class="site-footer section-padding">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-12 mb-4 pb-2">
+                        <a class="navbar-brand mb-2" href="index.html">
+
+                            <img src="images/idekunoback.png" class="img-fluid" alt="logo" width="200px" height="200px">
+                           
+                        </a>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <h6 class="site-footer-title mb-3">Resources</h6>
+
+                        <ul class="site-footer-links">
+                            <li class="site-footer-link-item">
+                                <a  href="#section_1"  class="site-footer-link">Home</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#section_" class="site-footer-link">Service</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#section_3" class="site-footer-link">Meet Our Team</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#section_4" class="site-footer-link">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 mb-4 mb-lg-0">
+                        <h6 class="site-footer-title mb-3">Information</h6>
+
+                        <p class="text-white d-flex mb-1">
+                            <a href="tel: 0813 1862 7595" class="site-footer-link">
+                                0813 1862 7595
+                            </a>
+                        </p>
+
+                        <p class="text-white d-flex">
+                            <a href="mailto:info@company.com" class="site-footer-link">
+                                info@idekuadvisory.com
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            English</button>
+
+                            <ul class="dropdown-menu">
+                                <li><button class="dropdown-item" type="button">Thai</button></li>
+
+                                <li><button class="dropdown-item" type="button">Myanmar</button></li>
+
+                                <li><button class="dropdown-item" type="button">Arabic</button></li>
+                            </ul>
+                        </div>
+
+                    
+                        
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="js/premium-interactions.js"></script>
+</body>
+</html>

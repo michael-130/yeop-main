@@ -45,6 +45,6 @@ function performSearch() {
         window.location.href = `topic-detail.html?topic=${matchedTopic}`;
     } else {
         // If no specific match, go to topics listing with search term
-        window.location.href = `topics-listing.html?search=${encodeURIComponent(searchTerm)}`;
+        window.location.href = `services.html`;
     }
 }

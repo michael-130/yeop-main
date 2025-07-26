@@ -6,8 +6,8 @@
 
         <meta name="description" content="">
         <meta name="author" content="">
-
-        <title>Topic Listing Bootstrap 5 Template</title>
+        <link rel="icon" type="image/svg+xml" href="images/favic.png">
+        <title>IdekuAdvisory</title>
 
         <!-- CSS FILES -->        
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +39,7 @@ https://templatemo.com/tm-590-topic-listing
 
         <main>
 
-            <nav class="navbar navbar-expand-lg">
+             <nav class="navbar navbar-expand-lg" style="background-color: #ffffff;">
                 <div class="container">
               <a class="navbar-brand" href="index.html">
   <img src="images/idekunoback.png" alt="Topic Logo" style="height: 40px; width: auto;">
@@ -52,7 +52,7 @@ https://templatemo.com/tm-590-topic-listing
                         <span class="navbar-toggler-icon"></span>
                     </button>
     
-                    <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="collapse navbar-collapse" id="navbarNav" >
                         <ul class="navbar-nav ms-lg-5 me-lg-auto">
                             <li class="nav-item">
                                 <a class="nav-link click-scroll" href="#section_1">Home</a>
@@ -98,17 +98,14 @@ https://templatemo.com/tm-590-topic-listing
 
                             <h6 class="text-center">Professional Finance Accounting Tax Solutions</h6>
 
-                            <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
-                                <div class="input-group input-group-lg">
-                                    <span class="input-group-text bi-search" id="basic-addon1">
-                                        
-                                    </span>
+                           <form method="get"action="services.html" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search" onsubmit="return handleSearch(event)">
+    <div class="input-group input-group-lg">
+        <span class="input-group-text bi-search" id="basic-addon1" ></span>
+        
+        <input name="keyword" type="search" class="form-control" id="keyword" placeholder="Accounting, Tax, Finance, Management, HR..." aria-label="Search">
+    </div>
+</form>
 
-                                    <input name="keyword" type="search" class="form-control" id="keyword" placeholder="Finance, Design, Marketing, Technology..." aria-label="Search">
-
-                               
-                                </div>
-                            </form>
                         </div>
 
                     </div>
@@ -252,13 +249,13 @@ https://templatemo.com/tm-590-topic-listing
                             <h2 class="text-white mb-5">Meet Our Team</h2>
                         </div>
 <div class="col-lg-4 col-md-6 col-12 mb-4">
-  <a href="team-detail.html?member=sarah-johnson" style="text-decoration: none;">
-    <div class="team-member-card" data-member="Id">
+ <a href="team.html" style="text-decoration: none;">
+    <div class="team-member-card" data-member="Ida Suganda">
       <div class="team-member-image-wrapper">
-        <img src="IDS.png" class="team-member-image" alt="Id">
+        <img src="images/IDS.png" class="team-member-image" alt="Ida Suganda">
       </div>
       <div class="team-member-info">
-        <h4 class="text-white mb-2">Id</h4>
+        <h4 class="text-white mb-2">Ida Suganda</h4>
         <h6 class="text-secondary mb-3">Tax Technician</h6>
         <p class="text-white">
           Certified tax technician with over 20 years of experience in finance, accounting, and taxation, having served diverse corporate clients with expertise in accounting system implementations and accounting solutions of budgeting, tax reporting, and financial reporting.
@@ -269,14 +266,14 @@ https://templatemo.com/tm-590-topic-listing
 </div>
 
                         <div class="col-lg-4 col-md-6 col-12 mb-4" >
-                                <a href="team-detail.html?member=michael-chen" style="text-decoration: none;">
+                                <a href="team.html" style="text-decoration: none;">
                                 
                             <div class="team-member-card" data-member="El">
                                 <div class="team-member-image-wrapper">
-                                    <img src="ELa.png" class="team-member-image " alt="El" >
+                                    <img src="images/ELa.png" class="team-member-image " alt="Elaine Limawan" >
                                 </div>
                                 <div class="team-member-info">
-                                    <h4 class="text-white mb-2">El </h4>
+                                    <h4 class="text-white mb-2">Elaine Limawan </h4>
                                     <h6 class="text-secondary mb-3">Accountant</h6>
                                     <p class="text-white">Chartered accountant with over 30 years of experience, specializing in payroll & recruitment services and SOP & KPI development for accounting and finance teams. Successfully supported hundreds of corporate clients with expert services in financial reporting, budgeting, tax compliance, and internal auditing.</p>
                                 </div>
@@ -285,14 +282,14 @@ https://templatemo.com/tm-590-topic-listing
                         </div>
 
                         <div class="col-lg-4 col-md-6 col-12 mb-4">
-                            <a href="team-detail.html?member=david-thompson" style="text-decoration: none;">
-                            <div class="team-member-card" data-member="Kes">
+                           <a href="team.html" style="text-decoration: none;">
+                            <div class="team-member-card" data-member="Kesumawati">
                                 
                                 <div class="team-member-image-wrapper">
-                                    <img src="KUSe.png" class="team-member-image" alt="Kes">
+                                    <img src="images/KUSe.png" class="team-member-image" alt="Kes">
                                 </div>
                                 <div class="team-member-info">
-                                    <h4 class="text-white mb-2">Kes </h4>
+                                    <h4 class="text-white mb-2">Kesumawati </h4>
                                     <h6 class="text-secondary mb-3">Accountant </h6>
                                     <p class="text-white">Experienced on process chartered accountant with over 30 years in finance, accounting, and tax, having served more than 200 corporate clients across various industries. She specializes in financial reporting systems automation and accounting solutions of budgeting, tax reporting, and internal audits.</p>
                                 </div>
@@ -329,7 +326,7 @@ https://templatemo.com/tm-590-topic-listing
           <div class="badge bg-info text-dark mb-3">
             Savings of $105.30 over 3 months
           </div>
-          <p class="text-muted small">Our team offers over 80 years of combined experience in finance, accounting, and taxation. Professionals like Kes,  Limawan, and Id ensure you’re in expert hands.</p>
+          <p class="text-muted small">Our team offers over 80 years of combined experience in finance, accounting, and taxation. Professionals like Kes,  Limawan, and Ida Suganda ensure you’re in expert hands.</p>
           <a href="#" class="fw-bold text-decoration-underline text-primary">Discover more about our expertise</a>
         </div>
       </div>
@@ -388,7 +385,7 @@ https://templatemo.com/tm-590-topic-listing
                     </div>
                     
                     <div class="row g-4">
-                        <div class="col-lg-3 col-md-6 col-12">
+                        <div class="col-lg-4 col-md-6 col-12">
                             <div class="record-card text-center" data-record="clients">
                                 <div class="record-icon mb-3">
                                     <i class="bi-people-fill"></i>
@@ -400,7 +397,7 @@ https://templatemo.com/tm-590-topic-listing
                             </div>
                         </div>
                         
-                        <div class="col-lg-3 col-md-6 col-12">
+                        <div class="col-lg-4 col-md-6 col-12">
                             <div class="record-card text-center" data-record="projects">
                                 <div class="record-icon mb-3">
                                     <i class="bi-briefcase-fill"></i>
@@ -412,19 +409,9 @@ https://templatemo.com/tm-590-topic-listing
                             </div>
                         </div>
                         
-                        <div class="col-lg-3 col-md-6 col-12">
-                            <div class="record-card text-center" data-record="awards">
-                                <div class="record-icon mb-3">
-                                    <i class="bi-trophy-fill"></i>
-                                </div>
-                                <h3 class="record-number mb-2">25+</h3>
-                                <h5 class="record-title mb-3">Awards Won</h5>
-                                <p class="record-description">Industry recognition for excellence and innovation</p>
-                                <a href="past-records.html?type=awards" class="btn btn-sm custom-btn">View Details</a>
-                            </div>
-                        </div>
+              
                         
-                        <div class="col-lg-3 col-md-6 col-12">
+                        <div class="col-lg-4 col-md-6 col-12">
                             <div class="record-card text-center" data-record="experience">
                                 <div class="record-icon mb-3">
                                     <i class="bi-calendar-check-fill"></i>
@@ -558,11 +545,11 @@ https://templatemo.com/tm-590-topic-listing
                                 <div class="social-contact">
                                     <h6 class="mb-3">Connect With Us</h6>
                                     <div class="social-buttons d-flex flex-wrap gap-3">
-                                        <a href="https://wa.me/13052409671" target="_blank" class="btn btn-success btn-social">
+                                        <a href="https://wa.me/+6281318627595" target="_blank" class="btn btn-success btn-social">
                                             <i class="bi-whatsapp me-2"></i>WhatsApp
                                         </a>
         
-                                        <a href="mailto:info@company.com" class="btn btn-warning btn-social">
+                                        <a href="mailto:info@idekuadvisory.com" class="btn btn-warning btn-social">
                                             <i class="bi-envelope-fill me-2"></i>Email
                                         </a>
                                     </div>
